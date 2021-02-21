@@ -6,13 +6,13 @@ import org.springframework.web.server.*;
 
 public class AccountGetDTO {
 
-    private Integer id;
+    private Long id;
     private Industry industry;
     private int employeeCount;
     private String city;
     private String country;
 
-    public AccountGetDTO(Integer id, String industry, int employeeCount, String city, String country) {
+    public AccountGetDTO(Long id, String industry, int employeeCount, String city, String country) {
         this.id = id;
         trySetIndustry(industry);
         setEmployeeCount(employeeCount);
@@ -35,11 +35,11 @@ public class AccountGetDTO {
         }
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

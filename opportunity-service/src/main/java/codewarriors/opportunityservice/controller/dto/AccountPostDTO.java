@@ -1,10 +1,6 @@
-package com.ironhack.accounts.controller.dtos;
+package codewarriors.opportunityservice.controller.dto;
 
-import com.ironhack.accounts.enums.*;
-import org.springframework.http.*;
-import org.springframework.web.server.*;
-
-public class AccountPostDTO {
+public class AccountOppAndContactGetDTO {
 
     private Long id;
     private Industry industry;
@@ -79,4 +75,5 @@ public class AccountPostDTO {
     public void setCountry(String country) {
         this.country = country;
     }
+
 }
