@@ -1,5 +1,9 @@
 package codewarriors.opportunityservice.controller.dto;
 
+import codewarriors.opportunityservice.enums.Industry;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
+
 public class AccountGetDTO {
     private Long id;
     private Industry industry;

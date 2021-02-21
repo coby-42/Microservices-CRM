@@ -1,5 +1,7 @@
 package codewarriors.opportunityservice.controller.dto;
 import javax.validation.constraints.NotNull;
+
+import codewarriors.opportunityservice.enums.Product;
 import codewarriors.opportunityservice.enums.Status;
 
 

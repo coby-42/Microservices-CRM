@@ -10,14 +10,14 @@ public class OppGetDTO {
     private int quantity;
     private ContactGetDTO decisionMaker;
     private Status status;
-    private SalesRepGetDTO salesRep;
+    private Long salesRep;
     private Long accountId;
 
     public OppGetDTO(){
 
     }
 
-    public OppGetDTO(Long id, Product product, int quantity, ContactGetDTO decisionMaker, Status status, SalesRepGetDTO salesRep, Long accountId) {
+    public OppGetDTO(Long id, Product product, int quantity, ContactGetDTO decisionMaker, Status status, Long salesRep, Long accountId) {
         this.id = id;
         this.product = product;
         this.quantity = quantity;
@@ -67,11 +67,11 @@ public class OppGetDTO {
         this.status = status;
     }
 
-    public SalesRepGetDTO getSalesRep() {
+    public Long getSalesRep() {
         return salesRep;
     }
 
-    public void setSalesRep(SalesRepGetDTO salesRep) {
+    public void setSalesRep(Long salesRep) {
         this.salesRep = salesRep;
     }
 

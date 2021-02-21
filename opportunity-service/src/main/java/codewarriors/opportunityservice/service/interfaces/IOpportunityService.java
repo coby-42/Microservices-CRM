@@ -5,9 +5,9 @@ import codewarriors.opportunityservice.controller.dto.OppPostDTO;
 
 public interface IOpportunityService {
 
-    public OppGetDTO createOpp (long id, OppPostDTO oppPostDTO);
+    OppGetDTO createOpp (Long id, OppPostDTO oppPostDTO);
 
-    public OppGetDTO updateOppCloseLost(long id);
+    OppGetDTO updateOppCloseLost(Long id);
 
-    public OppGetDTO updateOppCloseWon (long id);
+    OppGetDTO updateOppCloseWon(Long id);
 }

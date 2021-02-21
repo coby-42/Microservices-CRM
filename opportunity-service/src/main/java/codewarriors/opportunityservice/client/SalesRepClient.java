@@ -13,5 +13,5 @@ public interface SalesRepClient {
 
     @GetMapping("/sales-rep/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public SalesRepGetDTO getSalesRepById(@PathVariable long id);
+    SalesRepGetDTO getSalesRepById(@PathVariable long id);
 }

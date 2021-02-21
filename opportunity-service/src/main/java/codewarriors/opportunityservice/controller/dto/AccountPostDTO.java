@@ -1,4 +1,5 @@
 package codewarriors.opportunityservice.controller.dto;
+import codewarriors.opportunityservice.enums.Industry;
 import org.springframework.http.*;
 import org.springframework.web.server.*;
 
