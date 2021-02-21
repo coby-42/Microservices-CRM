@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
-public interface OpportunityRepository extends JpaRepository<Opportunity, Integer> {
+public interface OpportunityRepository extends JpaRepository<Opportunity, Long> {
 //    ----------------------------------------------------------------------------
 //    ---------------------------------By SalesRep--------------------------------
 //    ----------------------------------------------------------------------------
