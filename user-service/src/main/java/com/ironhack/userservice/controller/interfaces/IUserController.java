@@ -7,7 +7,6 @@ import com.ironhack.userservice.controller.DTO.SalesRepPostDTO;
 import com.ironhack.userservice.model.Role;
 import com.ironhack.userservice.security.CustomUserDetails;
 
-import java.security.Principal;
 import java.util.Set;
 
 public interface IUserController {
@@ -20,4 +19,6 @@ public interface IUserController {
     Set<Role> getUserRoles(CustomUserDetails customUserDetails);
 
     Set<Role> getUserRolesById(Long id);
+
+    void deleteSalesRep(Long id);
 }

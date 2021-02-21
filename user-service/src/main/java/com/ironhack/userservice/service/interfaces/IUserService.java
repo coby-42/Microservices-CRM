@@ -21,4 +21,6 @@ public interface IUserService {
     Set<Role> getRolesById(Long id);
 
     void createAdminIfNecessary();
+
+    void deleteSalesRep(Long id);
 }

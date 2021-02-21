@@ -122,6 +122,19 @@ public class UserService implements IUserService {
         System.out.println(ConsoleColors.WHITE_BOLD_BRIGHT);
     }
 
+    @Override
+    public void deleteSalesRep(Long id) {
+        Optional<SalesRep> salesRepOptional = salesRepRepository.findById(id);
+        if(salesRepOptional.isEmpty())
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No Sales Rep with that ID");
+
+        try {
+            salesRepRepository.delete(salesRepOptional.get());
+        }catch (Exception e){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Couldn't delete the Sales Rep");
+        }
+    }
+
     private AdminGetDTO AdminToGetDTO(Admin admin) {
         return new AdminGetDTO(
                 admin.getId(),
