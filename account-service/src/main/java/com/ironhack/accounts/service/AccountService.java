@@ -29,5 +29,12 @@ public class AccountService {
 
     public void createAccount(AccountDTO accountDTO) {
 
+        accountRepository.save(new Account(
+                accountDTO.getIndustry(),
+                accountDTO.getEmployeeCount(),
+                accountDTO.getCity(),
+                accountDTO.getCountry()
+        ));
+
     }
 }
