@@ -9,12 +9,12 @@ public class SalesRepGetDTO {
     private String username;
     private String firstName;
     private String lastName;
-    private Set<Role> roles;
+    private Set<String> roles;
 
     public SalesRepGetDTO() {
     }
 
-    public SalesRepGetDTO(Long id, String username, String firstName, String lastName, Set<Role> roles) {
+    public SalesRepGetDTO(Long id, String username, String firstName, String lastName, Set<String> roles) {
         this.id = id;
         this.username = username;
         this.firstName = firstName;
@@ -54,11 +54,11 @@ public class SalesRepGetDTO {
         this.lastName = lastName;
     }
 
-    public Set<Role> getRoles() {
+    public Set<String> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<Role> roles) {
+    public void setRoles(Set<String> roles) {
         this.roles = roles;
     }
 }

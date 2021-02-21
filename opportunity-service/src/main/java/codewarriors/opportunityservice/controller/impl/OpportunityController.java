@@ -44,7 +44,7 @@ public class OpportunityController implements IOpportunityController{
         }
 
         Opportunity opportunity = opportunityRepository.findById((int) id).get();
-        AccountOppAndContactGetDTO accountOppAndContactGetDTO = accountClient.getAccountById(opportunity.getAccountId());
+        AccountGetDTO accountOppAndContactGetDTO = accountClient.getAccountById(opportunity.getAccountId());
         SalesRepGetDTO salesRepGetDTO = salesRepClient.getSalesRepById(opportunity.getSalesRepId());
 
         ContactGetDTO contactGetDTO = new ContactGetDTO(opportunity.getDecisionMaker().getIdContact(),

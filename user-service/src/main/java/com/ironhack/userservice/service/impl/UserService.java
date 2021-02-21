@@ -21,6 +21,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -51,7 +52,7 @@ public class UserService implements IUserService {
         try {
             Admin admin = adminRepository.save(
                     new Admin(adminPostDTO.getUsername(),
-                    PasswordUtil.encryptPassword(adminPostDTO.getPassword()))
+                            PasswordUtil.encryptPassword(adminPostDTO.getPassword()))
             );
             roleRepository.save(new Role("ADMIN", admin));
             return AdminToGetDTO(admin);
@@ -125,12 +126,12 @@ public class UserService implements IUserService {
     @Override
     public void deleteSalesRep(Long id) {
         Optional<SalesRep> salesRepOptional = salesRepRepository.findById(id);
-        if(salesRepOptional.isEmpty())
+        if (salesRepOptional.isEmpty())
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No Sales Rep with that ID");
 
         try {
             salesRepRepository.delete(salesRepOptional.get());
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Couldn't delete the Sales Rep");
         }
     }
@@ -144,12 +145,15 @@ public class UserService implements IUserService {
     }
 
     private SalesRepGetDTO SalesRepToGetDTO(SalesRep salesRep) {
+        Set<String> roles = new HashSet<>();
+        for (Role role : salesRep.getRoles()) {
+            roles.add(role.getName());
+        }
         return new SalesRepGetDTO(
                 salesRep.getId(),
                 salesRep.getUsername(),
                 salesRep.getFirstName(),
                 salesRep.getLastName(),
-                salesRep.getRoles()
-        );
+                roles);
     }
 }
