@@ -10,9 +10,9 @@ public interface ILeadService {
 
     LeadGetDTO createLead(LeadPostDTO leadPostDTO);
 
-    LeadGetDTO getLead(Integer id);
+    LeadGetDTO getLead(Long id);
 
-    LeadGetDTO putLead(Integer id, LeadPostDTO leadPostDTO);
+    LeadGetDTO putLead(Long id, LeadPostDTO leadPostDTO);
 
-    LeadGetDTO deleteLead(Integer id);
+    LeadGetDTO deleteLead(Long id);
 }

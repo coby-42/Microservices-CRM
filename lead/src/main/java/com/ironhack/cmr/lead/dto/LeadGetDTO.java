@@ -4,12 +4,12 @@ package com.ironhack.cmr.lead.dto;
 import com.ironhack.cmr.lead.model.Lead;
 
 public class LeadGetDTO {
-    private int id;
+    private Long id;
     private String name;
     private String phoneNumber;
     private String email;
     private String companyName;
-    private Integer salesRepId;
+    private Long salesRepId;
 
 
     public LeadGetDTO(){
@@ -24,11 +24,11 @@ public class LeadGetDTO {
         setSalesRepId(lead.getSalesRepId());
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -64,11 +64,11 @@ public class LeadGetDTO {
         this.companyName = companyName;
     }
 
-    public Integer getSalesRepId() {
+    public Long getSalesRepId() {
         return salesRepId;
     }
 
-    public void setSalesRepId(Integer salesRepId) {
+    public void setSalesRepId(Long salesRepId) {
         this.salesRepId = salesRepId;
     }
 
