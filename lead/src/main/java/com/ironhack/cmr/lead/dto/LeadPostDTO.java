@@ -2,7 +2,6 @@ package com.ironhack.cmr.lead.dto;
 
 
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 
@@ -15,8 +14,7 @@ public class LeadPostDTO {
     private String email;
     @NotEmpty(message = "companyName can't be empty")
     private String companyName;
-    @NotNull(message = "salesRepId can't be null")
-    private Integer salesRepId;
+    private Long salesRepId;
 
 
     public LeadPostDTO(){
@@ -54,11 +52,11 @@ public class LeadPostDTO {
         this.companyName = companyName;
     }
 
-    public Integer getSalesRepId() {
+    public Long getSalesRepId() {
         return salesRepId;
     }
 
-    public void setSalesRepId(Integer salesRepId) {
+    public void setSalesRepId(Long salesRepId) {
         this.salesRepId = salesRepId;
     }
 

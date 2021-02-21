@@ -12,12 +12,12 @@ import javax.persistence.Id;
 public class Lead {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String name;
     private String phoneNumber;
     private String email;
     private String companyName;
-    private Integer salesRepId;
+    private Long salesRepId;
 
 
     public Lead(){
@@ -31,17 +31,17 @@ public class Lead {
         setSalesRepId(leadPostDTO.getSalesRepId());
     }
 
-    public Lead(Integer id, LeadPostDTO leadPostDTO) {
+    public Lead(Long id, LeadPostDTO leadPostDTO) {
         this(leadPostDTO);
         setId(id);
     }
 
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -77,11 +77,11 @@ public class Lead {
         this.companyName = companyName;
     }
 
-    public Integer getSalesRepId() {
+    public Long getSalesRepId() {
         return salesRepId;
     }
 
-    public void setSalesRepId(Integer salesRep) {
+    public void setSalesRepId(Long salesRep) {
         this.salesRepId = salesRep;
     }
 

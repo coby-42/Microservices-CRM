@@ -30,20 +30,20 @@ public class LeadController {
 
     @GetMapping("/lead/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public LeadGetDTO getLead(@PathVariable Integer id) {
+    public LeadGetDTO getLead(@PathVariable Long id) {
         return leadService.getLead(id);
     }
 
     @PutMapping("/lead/{id}")
     @ResponseStatus(HttpStatus.OK) // Quizá deberíamos cambiar los PUT a no content
-    public LeadGetDTO putLead(@PathVariable Integer id, @RequestBody @Valid LeadPostDTO leadPostDTO) {
+    public LeadGetDTO putLead(@PathVariable Long id, @RequestBody @Valid LeadPostDTO leadPostDTO) {
         // TODO: llamada a Users pa comprobar que el sales rep exista
         return leadService.putLead(id, leadPostDTO);
     }
 
     @DeleteMapping("/lead/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public LeadGetDTO deleteLead(@PathVariable Integer id) {
+    public LeadGetDTO deleteLead(@PathVariable Long id) {
         return leadService.deleteLead(id);
     }
 }

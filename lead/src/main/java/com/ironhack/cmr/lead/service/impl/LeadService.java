@@ -34,25 +34,25 @@ public class LeadService implements ILeadService {
     }
 
     @Override
-    public LeadGetDTO getLead(Integer id) {
+    public LeadGetDTO getLead(Long id) {
         return new LeadGetDTO(findLead(id));
     }
 
     @Override
-    public LeadGetDTO putLead(Integer id, LeadPostDTO leadPostDTO) {
+    public LeadGetDTO putLead(Long id, LeadPostDTO leadPostDTO) {
         findLead(id);
         Lead lead = new Lead(id, leadPostDTO);
         return new LeadGetDTO(leadRepository.save(lead));
     }
 
     @Override
-    public LeadGetDTO deleteLead(Integer id) {
+    public LeadGetDTO deleteLead(Long id) {
         Lead optionalLead = findLead(id);
         leadRepository.delete(optionalLead);
         return new LeadGetDTO(optionalLead);
     }
 
-    private Lead findLead(Integer id) {
+    private Lead findLead(Long id) {
         Optional<Lead> optionalLead = leadRepository.findById(id);
         if (optionalLead.isEmpty())
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Lead not found for id = " + id);
