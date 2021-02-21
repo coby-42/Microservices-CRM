@@ -5,36 +5,33 @@ import codewarriors.opportunityservice.enums.Status;
 
 public class OppGetDTO {
 
-    private long id;
+    private Long id;
     private Product product;
     private int quantity;
     private ContactGetDTO decisionMaker;
     private Status status;
     private SalesRepGetDTO salesRep;
-    private AccountOppAndContactGetDTO accountOppAndContactGetDTO;
+    private Long accountId;
 
     public OppGetDTO(){
 
     }
 
-    public OppGetDTO(long id, Product product,
-                     int quantity, ContactGetDTO decisionMaker,
-                     Status status, SalesRepGetDTO salesRep,
-                     AccountOppAndContactGetDTO accountOppAndContactGetDTO) {
+    public OppGetDTO(Long id, Product product, int quantity, ContactGetDTO decisionMaker, Status status, SalesRepGetDTO salesRep, Long accountId) {
         this.id = id;
         this.product = product;
         this.quantity = quantity;
         this.decisionMaker = decisionMaker;
         this.status = status;
         this.salesRep = salesRep;
-        this.accountOppAndContactGetDTO = accountOppAndContactGetDTO;
+        this.accountId = accountId;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -78,11 +75,11 @@ public class OppGetDTO {
         this.salesRep = salesRep;
     }
 
-    public AccountOppAndContactGetDTO getAccountOppAndContactGetDTO() {
-        return accountOppAndContactGetDTO;
+    public Long getAccountId() {
+        return accountId;
     }
 
-    public void setAccountOppAndContactGetDTO(AccountOppAndContactGetDTO accountOppAndContactGetDTO) {
-        this.accountOppAndContactGetDTO = accountOppAndContactGetDTO;
+    public void setAccountId(Long accountId) {
+        this.accountId = accountId;
     }
 }

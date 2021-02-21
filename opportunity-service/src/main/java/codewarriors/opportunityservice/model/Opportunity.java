@@ -13,7 +13,7 @@ import java.util.Objects;
 public class Opportunity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
     //private static int ID_COUNTER = 1;
     @Enumerated(EnumType.STRING)
     Product product;
@@ -23,13 +23,13 @@ public class Opportunity {
     Contact decisionMaker;
     @Enumerated(EnumType.STRING)
     Status status;
-    private long salesRepId;
-    private long accountId;
+    private Long salesRepId;
+    private Long accountId;
 
     public Opportunity() {
     }
 
-    public Opportunity(Product product, int quantity, Contact decisionMaker, Status status, long salesRepId, long accountId) {
+    public Opportunity(Product product, int quantity, Contact decisionMaker, Status status, Long salesRepId, Long accountId) {
         this.product = product;
         this.quantity = quantity;
         this.decisionMaker = decisionMaker;
@@ -70,27 +70,27 @@ public class Opportunity {
         this.status = status;
     }
 
-    public long getSalesRepId() {
+    public Long getSalesRepId() {
         return salesRepId;
     }
 
-    public void setSalesRepId(long salesRepId) {
+    public void setSalesRepId(Long salesRepId) {
         this.salesRepId = salesRepId;
     }
 
-    public long getAccountId() {
+    public Long getAccountId() {
         return accountId;
     }
 
-    public void setAccountId(long accountId) {
+    public void setAccountId(Long accountId) {
         this.accountId = accountId;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 }

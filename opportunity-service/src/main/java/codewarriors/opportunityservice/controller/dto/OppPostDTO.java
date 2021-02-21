@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 
 public class OppPostDTO {
 
-    private long leadId;
+    private Long leadId;
     @NotNull(message = "A type of product is required")
     private Product product;
     @NotNull(message = "A product´s quantity is required")
@@ -17,20 +17,15 @@ public class OppPostDTO {
     @NotNull(message = "A status is required")
     private Status status;
     @NotNull(message = "A salesrep is required")
-    private long salesRepId;
+    private Long salesRepId;
     @NotNull(message = "An account is required")
-    private long accountId;
+    private Long accountId;
 
     public OppPostDTO() {
 
     }
 
-    public OppPostDTO(long leadId, @NotNull(message = "A type of product is required") Product product,
-                      @NotNull(message = "A product´s quantity is required") int quantity,
-                      @NotNull(message = "A contact is required") ContactGetDTO decisionMaker,
-                      @NotNull(message = "A status is required") Status status,
-                      @NotNull(message = "A salesrep is required") long salesRepId,
-                      @NotNull(message = "An account is required") long accountId) {
+    public OppPostDTO(Long leadId, Product product, int quantity, ContactGetDTO decisionMaker, Status status, Long salesRepId, Long accountId) {
         this.leadId = leadId;
         this.product = product;
         this.quantity = quantity;
@@ -40,11 +35,11 @@ public class OppPostDTO {
         this.accountId = accountId;
     }
 
-    public long getLeadId() {
+    public Long getLeadId() {
         return leadId;
     }
 
-    public void setLeadId(long leadId) {
+    public void setLeadId(Long leadId) {
         this.leadId = leadId;
     }
 
@@ -80,19 +75,19 @@ public class OppPostDTO {
         this.status = status;
     }
 
-    public long getSalesRepId() {
+    public Long getSalesRepId() {
         return salesRepId;
     }
 
-    public void setSalesRepId(long salesRepId) {
+    public void setSalesRepId(Long salesRepId) {
         this.salesRepId = salesRepId;
     }
 
-    public long getAccountId() {
+    public Long getAccountId() {
         return accountId;
     }
 
-    public void setAccountId(long accountId) {
+    public void setAccountId(Long accountId) {
         this.accountId = accountId;
     }
 }

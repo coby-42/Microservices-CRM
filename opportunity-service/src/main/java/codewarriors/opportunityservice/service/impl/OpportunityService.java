@@ -33,7 +33,7 @@ public class OpportunityService implements IOpportunityService {
     @Autowired
     private SalesRepClient salesRepClient;
 
-    public OppGetDTO createOpp (@PathVariable long id, @RequestBody @Valid OppPostDTO oppPostDTO) {
+    public OppGetDTO createOpp (@PathVariable Long id, @RequestBody @Valid OppPostDTO oppPostDTO) {
 
         LeadGetDTO leadGetDTO = leadClient.getLeadById(id);
         Contact contact = new Contact();
@@ -73,7 +73,7 @@ public class OpportunityService implements IOpportunityService {
         return oppGetDTO;
     }
 
-        public OppGetDTO updateOppCloseLost (long id) {
+        public OppGetDTO updateOppCloseLost (Long id) {
         if(!opportunityRepository.findById((int) id).isPresent()){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Opportunity not found");
         }
@@ -105,7 +105,7 @@ public class OpportunityService implements IOpportunityService {
         return oppGetDTO;
     }
 
-    public OppGetDTO updateOppCloseWon (long id) {
+    public OppGetDTO updateOppCloseWon (Long id) {
 
         if(!opportunityRepository.findById((int) id).isPresent()){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Opportunity not found");

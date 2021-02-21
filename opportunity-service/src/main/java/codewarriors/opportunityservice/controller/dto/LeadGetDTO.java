@@ -2,32 +2,30 @@ package codewarriors.opportunityservice.controller.dto;
 
 public class LeadGetDTO {
 
-    private long id;
+    private Long id;
     private String name;
     private String phoneNumber;
     private String email;
     private String companyName;
-    private SalesRepGetDTO salesRep;
+    private Long salesRepId;
 
-    public LeadGetDTO(){
-
+    public LeadGetDTO() {
     }
 
-    public LeadGetDTO(long id, String name, String phoneNumber, String email,
-                      String companyName, SalesRepGetDTO salesRep) {
+    public LeadGetDTO(Long id, String name, String phoneNumber, String email, String companyName, Long salesRepId) {
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.companyName = companyName;
-        this.salesRep = salesRep;
+        this.salesRepId = salesRepId;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -63,11 +61,11 @@ public class LeadGetDTO {
         this.companyName = companyName;
     }
 
-    public SalesRepGetDTO getSalesRep() {
-        return salesRep;
+    public Long getSalesRepId() {
+        return salesRepId;
     }
 
-    public void setSalesRep(SalesRepGetDTO salesRep) {
-        this.salesRep = salesRep;
+    public void setSalesRepId(Long salesRepId) {
+        this.salesRepId = salesRepId;
     }
 }

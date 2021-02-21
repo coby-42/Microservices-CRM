@@ -1,33 +1,33 @@
 package codewarriors.opportunityservice.controller.dto;
 
 public class ContactGetDTO {
-    private long idContact;
+    private Long id;
     //private static int idCounter = 1;
     private String name;
     private String phoneNumber;
     private String email;
     private String companyName;
-    private AccountOppAndContactGetDTO accountOppAndContactGetDTO;
+    private Long accountId;
 
-    public ContactGetDTO(){
+    public ContactGetDTO() {
 
     }
 
-    public ContactGetDTO(long idContact, String name, String phoneNumber, String email, String companyName, AccountOppAndContactGetDTO accountOppAndContactGetDTO) {
-        this.idContact = idContact;
+    public ContactGetDTO(Long id, String name, String phoneNumber, String email, String companyName, Long accountId) {
+        this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.companyName = companyName;
-        this.accountOppAndContactGetDTO = accountOppAndContactGetDTO;
+        this.accountId = accountId;
     }
 
-    public long getIdContact() {
-        return idContact;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdContact(long idContact) {
-        this.idContact = idContact;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -62,11 +62,11 @@ public class ContactGetDTO {
         this.companyName = companyName;
     }
 
-    public AccountOppAndContactGetDTO getAccountOppAndContactGetDTO() {
-        return accountOppAndContactGetDTO;
+    public Long getAccountId() {
+        return accountId;
     }
 
-    public void setAccountOppAndContactGetDTO(AccountOppAndContactGetDTO accountOppAndContactGetDTO) {
-        this.accountOppAndContactGetDTO = accountOppAndContactGetDTO;
+    public void setAccountId(Long accountId) {
+        this.accountId = accountId;
     }
 }

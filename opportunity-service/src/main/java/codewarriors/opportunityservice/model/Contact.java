@@ -7,18 +7,18 @@ public class Contact {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idContact;
+    private Long idContact;
     //private static int idCounter = 1;
     private String name;
     private String phoneNumber;
     private String email;
     private String companyName;
-    private long accountId;
+    private Long accountId;
 
     public Contact() {
     }
 
-    public Contact(String name, String phoneNumber, String email, String companyName, long accountId) {
+    public Contact(String name, String phoneNumber, String email, String companyName, Long accountId) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.email = email;
@@ -26,11 +26,11 @@ public class Contact {
         this.accountId = accountId;
     }
 
-    public long getIdContact() {
+    public Long getIdContact() {
         return idContact;
     }
 
-    public void setIdContact(long idContact) {
+    public void setIdContact(Long idContact) {
         this.idContact = idContact;
     }
 
@@ -66,11 +66,11 @@ public class Contact {
         this.companyName = companyName;
     }
 
-    public long getAccountId() {
+    public Long getAccountId() {
         return accountId;
     }
 
-    public void setAccountId(long accountId) {
+    public void setAccountId(Long accountId) {
         this.accountId = accountId;
     }
 }
