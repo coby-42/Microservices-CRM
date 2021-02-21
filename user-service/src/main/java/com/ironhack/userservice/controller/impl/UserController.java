@@ -21,6 +21,7 @@ public class UserController implements IUserController {
     @Autowired
     private IUserService userService;
 
+
     @Override
     @PostMapping("/admin")
     @ResponseStatus(HttpStatus.CREATED)
@@ -51,5 +52,12 @@ public class UserController implements IUserController {
     @GetMapping("/roles/{id}")
     public Set<Role> getUserRolesById(@PathVariable Long id) {
         return userService.getRolesById(id);
+    }
+
+    @Override
+    @DeleteMapping("/sales-rep/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteSalesRep(@PathVariable Long id){
+        userService.deleteSalesRep(id);
     }
 }
