@@ -1,9 +1,7 @@
 package codewarriors.opportunityservice.controller.dto;
-
-import codewarriors.opportunityservice.enums.Product;
+import javax.validation.constraints.NotNull;
 import codewarriors.opportunityservice.enums.Status;
 
-import javax.validation.constraints.NotNull;
 
 public class OppPostDTO {
 

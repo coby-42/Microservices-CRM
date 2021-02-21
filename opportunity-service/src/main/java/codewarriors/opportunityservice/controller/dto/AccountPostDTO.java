@@ -1,6 +1,9 @@
 package codewarriors.opportunityservice.controller.dto;
+import org.springframework.http.*;
+import org.springframework.web.server.*;
 
-public class AccountOppAndContactGetDTO {
+
+public class AccountPostDTO {
 
     private Long id;
     private Industry industry;
@@ -75,5 +78,4 @@ public class AccountOppAndContactGetDTO {
     public void setCountry(String country) {
         this.country = country;
     }
-
 }
