@@ -4,7 +4,7 @@ import com.ironhack.accounts.enums.*;
 import org.springframework.http.*;
 import org.springframework.web.server.*;
 
-public class AccountDTO {
+public class AccountPostDTO {
 
     private Integer id;
     private Industry industry;
@@ -12,7 +12,7 @@ public class AccountDTO {
     private String city;
     private String country;
 
-    public AccountDTO(Integer id, String industry, int employeeCount, String city, String country) {
+    public AccountPostDTO(Integer id, String industry, int employeeCount, String city, String country) {
         this.id = id;
         trySetIndustry(industry);
         setEmployeeCount(employeeCount);
@@ -20,7 +20,7 @@ public class AccountDTO {
         this.country = country;
     }
 
-    public AccountDTO(String industry, int employeeCount, String city, String country) {
+    public AccountPostDTO(String industry, int employeeCount, String city, String country) {
         trySetIndustry(industry);
         this.employeeCount = employeeCount;
         this.city = city;

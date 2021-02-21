@@ -15,25 +15,44 @@ public class AccountService {
     @Autowired
     AccountRepository accountRepository;
 
-    public List<Account> getAllAccounts() {
-        return accountRepository.findAll();
+    public List<AccountGetDTO> getAllAccounts() {
+        List<AccountGetDTO> accounts = new ArrayList<>();
+        for(Account account : accountRepository.findAll()) {
+            accounts.add(new AccountGetDTO(
+                    account.getId(),
+                    account.getIndustry().toString(),
+                    account.getEmployeeCount(),
+                    account.getCity(),
+                    account.getCountry()
+            ));
+
+        }
+        return accounts;
     }
 
-    public Account getAccountById(Long id) {
+    public AccountGetDTO getAccountById(Long id) {
         if (accountRepository.findById(id).isPresent()) {
-            return accountRepository.findById(id).get();
-        } else {
+          Account account = accountRepository.findById(id).get();
+                return new AccountGetDTO(
+                        account.getId(),
+                        account.getIndustry().toString(),
+                        account.getEmployeeCount(),
+                        account.getCity(),
+                        account.getCountry()
+                );
+
+            } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "The account with id " + id + "doesn't exist in the database");
         }
     }
 
-    public void createAccount(AccountDTO accountDTO) {
+    public void createAccount(AccountGetDTO accountGetDTO) {
 
         accountRepository.save(new Account(
-                accountDTO.getIndustry(),
-                accountDTO.getEmployeeCount(),
-                accountDTO.getCity(),
-                accountDTO.getCountry()
+                accountGetDTO.getIndustry(),
+                accountGetDTO.getEmployeeCount(),
+                accountGetDTO.getCity(),
+                accountGetDTO.getCountry()
         ));
 
     }

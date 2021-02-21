@@ -17,20 +17,20 @@ public class AccountController implements AccountControllerInterface {
 
     @GetMapping("/accounts")
     @ResponseStatus(HttpStatus.OK)
-    public List<Account> getAllAccounts() {
+    public List<AccountGetDTO> getAllAccounts() {
         return accountService.getAllAccounts();
     }
 
     @GetMapping("account/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Account getAccountById(@PathVariable("id") Long id) {
+    public AccountGetDTO getAccountById(@PathVariable("id") Long id) {
         return accountService.getAccountById(id);
     }
 
     @PostMapping("/account")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createAccount(@RequestBody AccountDTO accountDTO) {
-        accountService.createAccount(accountDTO);
+    public void createAccount(@RequestBody AccountGetDTO accountGetDTO) {
+        accountService.createAccount(accountGetDTO);
 
     }
 
