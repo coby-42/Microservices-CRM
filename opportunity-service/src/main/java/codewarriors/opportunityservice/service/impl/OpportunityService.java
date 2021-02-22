@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
-import java.util.Optional;
 
 @Service
 public class OpportunityService implements IOpportunityService {
@@ -34,7 +33,7 @@ public class OpportunityService implements IOpportunityService {
     @Autowired
     private SalesRepClient salesRepClient;
 
-    public OppGetDTO createOpp(@PathVariable Long id, @RequestBody @Valid OppPostDTO oppPostDTO) {
+    public OppGetDTO createOpp (@PathVariable Long id, @RequestBody @Valid OppPostDTO oppPostDTO) {
 
         LeadGetDTO leadGetDTO = leadClient.getLeadById(id);
         Contact contact = new Contact();
@@ -45,7 +44,7 @@ public class OpportunityService implements IOpportunityService {
         contact.setAccountId(oppPostDTO.getAccountId());
         contactRepository.save(contact);
 
-        AccountGetDTO accountGetDTO = accountClient.getAccountById(oppPostDTO.getAccountId());
+        AccountOppAndContactGetDTO accountOppAndContactGetDTO = accountClient.getAccountById(oppPostDTO.getAccountId());
         Opportunity opportunity = new Opportunity();
         opportunity.setDecisionMaker(contact);
         opportunity.setProduct(oppPostDTO.getProduct());
@@ -56,81 +55,86 @@ public class OpportunityService implements IOpportunityService {
         opportunityRepository.save(opportunity);
 
         ContactGetDTO contactGetDTO = new ContactGetDTO(opportunity.getDecisionMaker().getIdContact(),
-                opportunity.getDecisionMaker().getName(),
-                opportunity.getDecisionMaker().getPhoneNumber(),
-                opportunity.getDecisionMaker().getEmail(),
-                opportunity.getDecisionMaker().getCompanyName(),
-                accountGetDTO.getId());
+                                                        opportunity.getDecisionMaker().getName(),
+                                                        opportunity.getDecisionMaker().getPhoneNumber(),
+                                                        opportunity.getDecisionMaker().getEmail(),
+                                                        opportunity.getDecisionMaker().getCompanyName(),
+                                                        accountOppAndContactGetDTO);
 
 
-        return new OppGetDTO(opportunity.getId(),
-                opportunity.getProduct(),
-                opportunity.getQuantity(),
-                contactGetDTO,
-                opportunity.getStatus(),
-                leadGetDTO.getSalesRepId(),
-                accountGetDTO.getId());
+        OppGetDTO oppGetDTO = new OppGetDTO(opportunity.getId(),
+                                            opportunity.getProduct(),
+                                            opportunity.getQuantity(),
+                                            contactGetDTO,
+                                            opportunity.getStatus(),
+                                            leadGetDTO.getSalesRep(),
+                                            accountOppAndContactGetDTO);
 
+        return oppGetDTO;
     }
 
-    public OppGetDTO updateOppCloseLost(Long id) {
-        Optional<Opportunity> opportunityOptional = opportunityRepository.findById(id);
-        if (opportunityOptional.isEmpty())
+        public OppGetDTO updateOppCloseLost (Long id) {
+        if(!opportunityRepository.findById((int) id).isPresent()){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Opportunity not found");
+        }
 
-
-        Opportunity opportunity = opportunityOptional.get();
+        Opportunity opportunity =  opportunityRepository.findById((int) id).get();
         opportunity.setStatus(Status.CLOSED_LOST);
         opportunityRepository.save(opportunity);
 
-        AccountGetDTO accountGetDTO = accountClient.getAccountById(opportunity.getAccountId());
+        AccountOppAndContactGetDTO accountOppAndContactGetDTO = accountClient.getAccountById(opportunity.getAccountId());
 
         SalesRepGetDTO salesRepGetDTO = salesRepClient.getSalesRepById(opportunity.getSalesRepId());
 
         ContactGetDTO contactGetDTO = new ContactGetDTO(opportunity.getDecisionMaker().getIdContact(),
-                opportunity.getDecisionMaker().getName(),
-                opportunity.getDecisionMaker().getPhoneNumber(),
-                opportunity.getDecisionMaker().getEmail(),
-                opportunity.getDecisionMaker().getCompanyName(),
-                accountGetDTO.getId());
+                                                        opportunity.getDecisionMaker().getName(),
+                                                        opportunity.getDecisionMaker().getPhoneNumber(),
+                                                        opportunity.getDecisionMaker().getEmail(),
+                                                        opportunity.getDecisionMaker().getCompanyName(),
+                                                        accountOppAndContactGetDTO);
 
 
-        return new OppGetDTO(opportunity.getId(),
-                opportunity.getProduct(),
-                opportunity.getQuantity(),
-                contactGetDTO,
-                opportunity.getStatus(),
-                salesRepGetDTO.getId(),
-                accountGetDTO.getId());
+        OppGetDTO oppGetDTO = new OppGetDTO(opportunity.getId(),
+                                            opportunity.getProduct(),
+                                            opportunity.getQuantity(),
+                                            contactGetDTO,
+                                            opportunity.getStatus(),
+                                            salesRepGetDTO,
+                                            accountOppAndContactGetDTO);
+
+        return oppGetDTO;
     }
 
-    public OppGetDTO updateOppCloseWon(Long id) {
-        Optional<Opportunity> opportunityOptional = opportunityRepository.findById(id);
-        if (opportunityOptional.isEmpty())
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Opportunity not found");
+    public OppGetDTO updateOppCloseWon (Long id) {
 
-        Opportunity opportunity = opportunityOptional.get();
+        if(!opportunityRepository.findById((int) id).isPresent()){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Opportunity not found");
+        }
+
+        Opportunity opportunity =  opportunityRepository.findById((int) id).get();
         opportunity.setStatus(Status.CLOSED_WON);
         opportunityRepository.save(opportunity);
 
-        AccountGetDTO accountGetDTO = accountClient.getAccountById(opportunity.getAccountId());
+        AccountOppAndContactGetDTO accountOppAndContactGetDTO = accountClient.getAccountById(opportunity.getAccountId());
 
         SalesRepGetDTO salesRepGetDTO = salesRepClient.getSalesRepById(opportunity.getSalesRepId());
 
         ContactGetDTO contactGetDTO = new ContactGetDTO(opportunity.getDecisionMaker().getIdContact(),
-                opportunity.getDecisionMaker().getName(),
-                opportunity.getDecisionMaker().getPhoneNumber(),
-                opportunity.getDecisionMaker().getEmail(),
-                opportunity.getDecisionMaker().getCompanyName(),
-                accountGetDTO.getId());
+                                                        opportunity.getDecisionMaker().getName(),
+                                                        opportunity.getDecisionMaker().getPhoneNumber(),
+                                                        opportunity.getDecisionMaker().getEmail(),
+                                                        opportunity.getDecisionMaker().getCompanyName(),
+                                                        accountOppAndContactGetDTO);
 
 
-        return new OppGetDTO(opportunity.getId(),
-                opportunity.getProduct(),
-                opportunity.getQuantity(),
-                contactGetDTO,
-                opportunity.getStatus(),
-                salesRepGetDTO.getId(),
-                accountGetDTO.getId());
+        OppGetDTO oppGetDTO = new OppGetDTO(opportunity.getId(),
+                                            opportunity.getProduct(),
+                                            opportunity.getQuantity(),
+                                            contactGetDTO,
+                                            opportunity.getStatus(),
+                                            salesRepGetDTO,
+                                            accountOppAndContactGetDTO);
+
+        return oppGetDTO;
     }
 }

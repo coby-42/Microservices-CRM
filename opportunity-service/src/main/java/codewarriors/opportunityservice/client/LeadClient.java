@@ -12,5 +12,5 @@ public interface LeadClient {
 
     @GetMapping("/lead/{id}")
     @ResponseStatus(HttpStatus.OK)
-    LeadGetDTO getLeadById(@PathVariable long id);
+    public LeadGetDTO getLeadById(@PathVariable Long id);
 }
