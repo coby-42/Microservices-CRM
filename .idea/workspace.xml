@@ -3,12 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="072c6afb-d059-444b-b591-8717bad83a30" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/client/AccountClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/client/AccountClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/client/LeadClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/client/LeadClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/client/SalesRepClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/client/SalesRepClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/controller/dto/OppGetDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/controller/dto/OppGetDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/controller/impl/OpportunityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/controller/impl/OpportunityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/controller/interfaces/IOpportunityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/controller/interfaces/IOpportunityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/repository/OpportunityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/repository/OpportunityRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/service/impl/OpportunityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/service/impl/OpportunityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/service/interfaces/IOpportunityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/service/interfaces/IOpportunityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opportunity-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/opportunity-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +31,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/opportunity-service" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/eureka" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">

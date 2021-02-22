@@ -15,7 +15,7 @@ public interface OpportunityRepository extends JpaRepository<Opportunity, Long> 
 //    ----------------------------------------------------------------------------
 
     //    A count of all Opportunities by SalesRep
-    @Query(value = "SELECT s.name , count(*) FROM opportunity o INNER JOIN sales_rep s ON o.salesrep_id = s.id GROUP BY o.salesrep_id", nativeQuery = true)
+    @Query(value = "SELECT sales_rep_id ,count(*) as opportunity_count FROM opportunity GROUP BY sales_rep_id", nativeQuery = true)
     List<Object[]> countOpportunitiesBySalesRep();
 
 //    A count of all CLOSED_WON Opportunities by SalesRep

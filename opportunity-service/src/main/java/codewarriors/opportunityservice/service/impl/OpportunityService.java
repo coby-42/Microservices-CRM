@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Service
 public class OpportunityService implements IOpportunityService {
@@ -33,9 +34,9 @@ public class OpportunityService implements IOpportunityService {
     @Autowired
     private SalesRepClient salesRepClient;
 
-    public OppGetDTO createOpp (@PathVariable Long id, @RequestBody @Valid OppPostDTO oppPostDTO) {
+    public OppGetDTO createOpp (@RequestBody @Valid OppPostDTO oppPostDTO) {
 
-        LeadGetDTO leadGetDTO = leadClient.getLeadById(id);
+        LeadGetDTO leadGetDTO = leadClient.getLeadById(oppPostDTO.getLeadId());
         Contact contact = new Contact();
         contact.setName(leadGetDTO.getName());
         contact.setCompanyName(leadGetDTO.getCompanyName());
@@ -136,5 +137,9 @@ public class OpportunityService implements IOpportunityService {
                                             opportunity.getAccountId());
 
         return oppGetDTO;
+    }
+
+    public List<Object[]> getOppBySalesRep(){
+        return opportunityRepository.countOpportunitiesBySalesRep();
     }
 }
