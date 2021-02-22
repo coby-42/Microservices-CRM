@@ -37,7 +37,7 @@ public class OpportunityController implements IOpportunityController{
     @Override
     @GetMapping("/opportunity/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public OppGetDTO getOppById(@PathVariable long id) {
+    public OppGetDTO getOppById(@PathVariable Long id) {
 
         if(!opportunityRepository.existsById(id)){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Opportunity not found");
