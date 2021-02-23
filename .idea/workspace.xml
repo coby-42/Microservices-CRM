@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/repository/OpportunityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/repository/OpportunityRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/service/impl/OpportunityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/service/impl/OpportunityService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/service/interfaces/IOpportunityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/service/interfaces/IOpportunityService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/opportunity-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/opportunity-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

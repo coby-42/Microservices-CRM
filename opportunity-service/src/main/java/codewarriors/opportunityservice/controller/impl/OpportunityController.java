@@ -83,10 +83,70 @@ public class OpportunityController implements IOpportunityController {
         return opportunityService.updateOppCloseWon(id);
     }
 
+//    ----------------------------------------------------------------------------
+//    ---------------------------------By SalesRep--------------------------------
+//    ----------------------------------------------------------------------------
+
     @Override
-    @GetMapping("/report/opportunity/by/salesRep")
+    @GetMapping("/report/opportunity/by-salesRep")
     @ResponseStatus(HttpStatus.OK)
     public List <Object[]> getOppBySalesRep() {
         return opportunityService.getOppBySalesRep();
     }
+
+    @Override
+    @GetMapping("/report/closedWon/by-salesRep")
+    @ResponseStatus(HttpStatus.OK)
+    public List <Object[]> getClosedWonBySalesRep() {
+        return opportunityService.getClosedWonBySalesRep();
+    }
+
+    @Override
+    @GetMapping("/report/closedLost/by-salesRep")
+    @ResponseStatus(HttpStatus.OK)
+    public List <Object[]> getClosedLostBySalesRep() {
+        return opportunityService.getClosedLostBySalesRep();
+    }
+
+    @Override
+    @GetMapping("/report/open/by-salesRep")
+    @ResponseStatus(HttpStatus.OK)
+    public List <Object[]> getOpenBySalesRep() {
+        return opportunityService.getOpenBySalesRep();
+    }
+
+//    ----------------------------------------------------------------------------
+//    ---------------------------------By Product --------------------------------
+//    ----------------------------------------------------------------------------
+
+    @Override
+    @GetMapping("/report/opportunity/by-Product")
+    @ResponseStatus(HttpStatus.OK)
+    public List <Object[]> getOppByProduct() {
+        return opportunityService.getOppByProduct();
+    }
+
+    @Override
+    @GetMapping("/report/closedWon/by-Product")
+    @ResponseStatus(HttpStatus.OK)
+    public List <Object[]> getClosedWonByProduct() {
+        return opportunityService.getClosedWonByProduct();
+    }
+
+    @Override
+    @GetMapping("/report/closedLost/by-Product")
+    @ResponseStatus(HttpStatus.OK)
+    public List <Object[]> getClosedLostByProduct() {
+        return opportunityService.getClosedLostByProduct();
+    }
+
+    @Override
+    @GetMapping("/report/open/by-Product")
+    @ResponseStatus(HttpStatus.OK)
+    public List <Object[]> getOpenByProduct() {
+        return opportunityService.getOpenByProduct();
+    }
+
+
+
 }

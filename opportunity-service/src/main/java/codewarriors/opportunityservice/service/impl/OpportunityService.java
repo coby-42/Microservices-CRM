@@ -139,7 +139,43 @@ public class OpportunityService implements IOpportunityService {
         return oppGetDTO;
     }
 
+//    ----------------------------------------------------------------------------
+//    ---------------------------------By SalesRep--------------------------------
+//    ----------------------------------------------------------------------------
+
     public List<Object[]> getOppBySalesRep(){
         return opportunityRepository.countOpportunitiesBySalesRep();
     }
+    public List<Object[]> getClosedWonBySalesRep(){
+        return opportunityRepository.countOpportunitiesBySalesRepClosedWon();
+    }
+    public List<Object[]> getClosedLostBySalesRep(){
+        return opportunityRepository.countOpportunitiesBySalesRepClosedLost();
+    }
+    public List<Object[]> getOpenBySalesRep(){
+        return opportunityRepository.countOpportunitiesBySalesRepOpen();
+    }
+
+//    ----------------------------------------------------------------------------
+//    ---------------------------------By Product --------------------------------
+//    ----------------------------------------------------------------------------
+
+    public List<Object[]> getOppByProduct(){
+        return opportunityRepository.countOpportunitiesByProduct();
+    }
+    public List<Object[]> getClosedWonByProduct(){
+        return opportunityRepository.countOpportunitiesByProductClosedWon();
+    }
+    public List<Object[]> getClosedLostByProduct(){
+        return opportunityRepository.countOpportunitiesByProductClosedLost();
+    }
+    public List<Object[]> getOpenByProduct(){
+        return opportunityRepository.countOpportunitiesByProductOpen();
+    }
+
+//    ----------------------------------------------------------------------------
+//    ---------------------------------By Country --------------------------------
+//    ----------------------------------------------------------------------------
+
+
 }
