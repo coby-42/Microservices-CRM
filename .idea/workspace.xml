@@ -2,19 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="072c6afb-d059-444b-b591-8717bad83a30" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/controller/impl/AccountController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/controller/interfaces/AccountControllerInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/model/Account.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/repository/AccountRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/service/impl/AccountService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/opportunity-service/src/main/resources/Opportunity.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/client/AccountClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/controller/dto/OppGetDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/controller/dto/OppGetDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/controller/dto/OppPostDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/controller/dto/OppPostDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/controller/dto/AccountGetDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/controller/dto/AccountGetDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/controller/dto/AccountPostDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/controller/dto/AccountPostDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/controller/impl/OpportunityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/controller/impl/OpportunityController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/controller/interfaces/IOpportunityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/controller/interfaces/IOpportunityController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/model/Opportunity.java" beforeDir="false" afterPath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/model/Opportunity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/repository/OpportunityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/repository/OpportunityRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/service/impl/OpportunityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/service/impl/OpportunityService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/service/interfaces/IOpportunityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/opportunity-service/src/main/java/codewarriors/opportunityservice/service/interfaces/IOpportunityService.java" afterDir="false" />
     </list>

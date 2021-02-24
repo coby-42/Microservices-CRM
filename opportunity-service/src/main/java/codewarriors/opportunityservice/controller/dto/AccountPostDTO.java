@@ -12,16 +12,16 @@ public class AccountPostDTO {
     private String city;
     private String country;
 
-    public AccountPostDTO(Long id, String industry, int employeeCount, String city, String country) {
+    public AccountPostDTO(Long id, Industry industry, int employeeCount, String city, String country) {
         this.id = id;
-        trySetIndustry(industry);
+        this.industry = industry;
         setEmployeeCount(employeeCount);
         this.city = city;
         this.country = country;
     }
 
-    public AccountPostDTO(String industry, int employeeCount, String city, String country) {
-        trySetIndustry(industry);
+    public AccountPostDTO(Industry industry, int employeeCount, String city, String country) {
+        this.industry = industry;
         this.employeeCount = employeeCount;
         this.city = city;
         this.country = country;

@@ -20,7 +20,7 @@ public class AccountService {
         for(Account account : accountRepository.findAll()) {
             accounts.add(new AccountGetDTO(
                     account.getId(),
-                    account.getIndustry().toString(),
+                    account.getIndustry(),
                     account.getEmployeeCount(),
                     account.getCity(),
                     account.getCountry()
@@ -35,7 +35,7 @@ public class AccountService {
           Account account = accountRepository.findById(id).get();
                 return new AccountGetDTO(
                         account.getId(),
-                        account.getIndustry().toString(),
+                        account.getIndustry(),
                         account.getEmployeeCount(),
                         account.getCity(),
                         account.getCountry()

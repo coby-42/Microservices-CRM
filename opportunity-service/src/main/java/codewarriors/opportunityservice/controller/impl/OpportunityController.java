@@ -49,10 +49,10 @@ public class OpportunityController implements IOpportunityController {
                 opportunity.getDecisionMaker().getAccountId());
 
         AccountGetDTO accountGetDTO = new AccountGetDTO(opportunity.getAccount().getId(),
-                opportunity.getAccount().getCity(),
+                opportunity.getAccount().getIndustry(),
                 opportunity.getAccount().getEmployeeCount(),
                 opportunity.getAccount().getCountry(),
-                opportunity.getAccount().getIndustry().toString());
+                opportunity.getAccount().getCity());
 
 
         OppGetDTO oppGetDTO = new OppGetDTO(opportunity.getId(),
@@ -182,5 +182,127 @@ public class OpportunityController implements IOpportunityController {
         return opportunityService.getOpenByCountry();
     }
 
+//    ----------------------------------------------------------------------------
+//    ---------------------------------By City -----------------------------------
+//    ----------------------------------------------------------------------------
+
+
+    @Override
+    @GetMapping("/report/opportunity/by-City")
+    @ResponseStatus(HttpStatus.OK)
+    public List <Object[]> getOppByCity() {
+        return opportunityService.getOppByCity();
+    }
+
+    @Override
+    @GetMapping("/report/closedWon/by-City")
+    @ResponseStatus(HttpStatus.OK)
+    public List <Object[]> getClosedWonByCity() {
+        return opportunityService.getClosedWonByCity();
+    }
+
+    @Override
+    @GetMapping("/report/closedLost/by-City")
+    @ResponseStatus(HttpStatus.OK)
+    public List <Object[]> getClosedLostByCity() {
+        return opportunityService.getClosedLostByCity();
+    }
+
+    @Override
+    @GetMapping("/report/open/by-City")
+    @ResponseStatus(HttpStatus.OK)
+    public List <Object[]> getOpenByCity() {
+        return opportunityService.getOpenByCity();
+    }
+
+//    ----------------------------------------------------------------------------
+//    ---------------------------------By Industry--------------------------------
+//    ----------------------------------------------------------------------------
+
+    @Override
+    @GetMapping("/report/opportunity/by-Industry")
+    @ResponseStatus(HttpStatus.OK)
+    public List <Object[]> getOppByIndustry() {
+        return opportunityService.getOppByIndustry();
+    }
+
+    @Override
+    @GetMapping("/report/closedWon/by-Industry")
+    @ResponseStatus(HttpStatus.OK)
+    public List <Object[]> getClosedWonByIndustry() {
+        return opportunityService.getClosedWonByIndustry();
+    }
+
+    @Override
+    @GetMapping("/report/closedLost/by-Industry")
+    @ResponseStatus(HttpStatus.OK)
+    public List <Object[]> getClosedLostByIndustry() {
+        return opportunityService.getClosedLostByIndustry();
+    }
+
+    @Override
+    @GetMapping("/report/open/by-Industry")
+    @ResponseStatus(HttpStatus.OK)
+    public List <Object[]> getOpenByIndustry() {
+        return opportunityService.getOpenByIndustry();
+    }
+
+
+//    ----------------------------------------------------------------------------
+//    -----------------------------------------------------
+//    ----------------------------------------------------------------------------
+
+    @Override
+    @GetMapping("/report/meanQuantityOfOrders")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Object[]> getMeanQuantityOfOrders(){
+        return opportunityService.getMeanQuantityOfOrders();
+    }
+
+    @Override
+    @GetMapping("/report/medianQuantityOfOrders")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Object[]> getMedianQuantityOfOrders(){
+        return opportunityService.getMedianQuantityOfOrders();
+    }
+
+    @Override
+    @GetMapping("/report/maxQuantityOfOrders")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Object[]> getMaxQuantityOfOrders(){
+        return opportunityService.getMaxQuantityOfOrders();
+    }
+
+    @Override
+    @GetMapping("/report/minQuantityOfOrders")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Object[]> getMinQuantityOfOrders(){
+        return opportunityService.getMinQuantityOfOrders();
+    }
+
+//    ----------------------------------------------------------------------------
+//    -----------------------------------------------------
+//    ----------------------------------------------------------------------------
+
+    @Override
+    @GetMapping("/report/averageOpportunitiesInAccount")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Object[]> getAverageOpportunitiesInAccount(){
+        return opportunityService.getAverageOpportunitiesInAccount();
+    }
+
+    @Override
+    @GetMapping("/report/maxOpportunitiesInAccount")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Object[]> getMaxOpportunitiesInAccount(){
+        return opportunityService.getMaxOpportunitiesInAccount();
+    }
+
+    @Override
+    @GetMapping("/report/minOpportunitiesInAccount")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Object[]> getMinOpportunitiesInAccount(){
+        return opportunityService.getMinOpportunitiesInAccount();
+    }
 
 }

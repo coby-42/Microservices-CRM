@@ -11,16 +11,16 @@ public class AccountGetDTO {
     private String city;
     private String country;
 
-    public AccountGetDTO(Long id, String industry, int employeeCount, String city, String country) {
+    public AccountGetDTO(Long id, Industry industry, int employeeCount, String city, String country) {
         this.id = id;
-        trySetIndustry(industry);
+        this.industry = industry;
         setEmployeeCount(employeeCount);
         this.city = city;
         this.country = country;
     }
 
-    public AccountGetDTO(String industry, int employeeCount, String city, String country) {
-        trySetIndustry(industry);
+    public AccountGetDTO(Industry industry, int employeeCount, String city, String country) {
+       this.industry = industry;
         this.employeeCount = employeeCount;
         this.city = city;
         this.country = country;

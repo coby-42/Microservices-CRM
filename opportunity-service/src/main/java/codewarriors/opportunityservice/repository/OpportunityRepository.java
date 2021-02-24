@@ -76,19 +76,19 @@ public interface OpportunityRepository extends JpaRepository<Opportunity, Long> 
 
 //    A count of all Opportunities by city
 
-    @Query(value = "SELECT a.city, count(*) FROM opportunity o JOIN account a ON o.account_id= a.id GROUP BY a.city", nativeQuery = true)
+    @Query(value = "SELECT a.city, count(*) FROM opportunity o JOIN account a ON o.account_id= a.account_id  GROUP BY a.city", nativeQuery = true)
     List<Object[]> countOpportunitiesByCity();
 
 //    A count of all CLOSED_WON Opportunities by city
-    @Query(value = "SELECT a.city, count(*) FROM opportunity o JOIN account a ON o.account_id= a.id WHERE o.status = 'CLOSED_WON' GROUP BY a.city;\n", nativeQuery = true)
+    @Query(value = "SELECT a.city, count(*) FROM opportunity o JOIN account a ON o.account_id= a.account_id  WHERE o.status = 'CLOSED_WON' GROUP BY a.city;\n", nativeQuery = true)
     List<Object[]> countOpportunitiesByCityClosedWon();
 
 //    A count of all CLOSED_LOST Opportunities by city
-    @Query(value = "SELECT a.city, count(*) FROM opportunity o JOIN account a ON o.account_id= a.id WHERE o.status = 'CLOSED_LOST' GROUP BY a.city;\n", nativeQuery = true)
+    @Query(value = "SELECT a.city, count(*) FROM opportunity o JOIN account a ON o.account_id=a.account_id  WHERE o.status = 'CLOSED_LOST' GROUP BY a.city;\n", nativeQuery = true)
     List<Object[]> countOpportunitiesByCityClosedLost();
 
 //    A count of all OPEN Opportunities by city
-    @Query(value = "SELECT a.city, count(*) FROM opportunity o JOIN account a ON o.account_id= a.id WHERE o.status = 'CLOSED_OPEN' GROUP BY a.city;\n", nativeQuery = true)
+    @Query(value = "SELECT a.city, count(*) FROM opportunity o JOIN account a ON o.account_id= a.account_id  WHERE o.status = 'CLOSED_OPEN' GROUP BY a.city;\n", nativeQuery = true)
     List<Object[]> countOpportunitiesByCityOpen();
 
 
@@ -97,19 +97,19 @@ public interface OpportunityRepository extends JpaRepository<Opportunity, Long> 
 //    ----------------------------------------------------------------------------
 
 //    A count of all Opportunities by industry
-    @Query(value = "SELECT a.industry, count(*) FROM opportunity o JOIN account a ON o.account_id= a.id GROUP BY a.industry", nativeQuery = true)
+    @Query(value = "SELECT a.industry, count(*) FROM opportunity o JOIN account a ON o.account_id= a.account_id  GROUP BY a.industry", nativeQuery = true)
     public List<Object[]> countOpportunitiesByIndustry();
 
 //    A count of all CLOSED_WON Opportunities by industry
-    @Query(value = "SELECT a.industry, count(*) FROM opportunity o JOIN account a ON o.account_id= a.id WHERE o.status = 'CLOSED_WON' GROUP BY a.industry", nativeQuery = true)
+    @Query(value = "SELECT a.industry, count(*) FROM opportunity o JOIN account a ON o.account_id= a.account_id WHERE o.status = 'CLOSED_WON' GROUP BY a.industry", nativeQuery = true)
     public List<Object[]> countOpportunitiesByIndustryClosedWon();
 
 //    A count of all CLOSED_LOST Opportunities by industry
-    @Query(value = "SELECT a.industry, count(*) FROM opportunity o JOIN account a ON o.account_id= a.id WHERE o.status = 'CLOSED_LOST' GROUP BY a.industry", nativeQuery = true)
+    @Query(value = "SELECT a.industry, count(*) FROM opportunity o JOIN account a ON o.account_id= a.account_id  WHERE o.status = 'CLOSED_LOST' GROUP BY a.industry", nativeQuery = true)
     public List<Object[]> countOpportunitiesByIndustryClosedLost();
 
 //    A count of all OPEN Opportunities by industry
-    @Query(value = "SELECT a.industry, count(*) FROM opportunity o JOIN account a ON o.account_id= a.id WHERE o.status = 'OPEN' GROUP BY a.industry", nativeQuery = true)
+    @Query(value = "SELECT a.industry, count(*) FROM opportunity o JOIN account a ON o.account_id=a.account_id  WHERE o.status = 'OPEN' GROUP BY a.industry", nativeQuery = true)
     public List<Object[]> countOpportunitiesByIndustryOpen();
 
 

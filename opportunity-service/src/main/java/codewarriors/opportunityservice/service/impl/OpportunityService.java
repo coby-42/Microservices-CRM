@@ -136,4 +136,73 @@ public class OpportunityService implements IOpportunityService {
     public List<Object[]> getOpenByCountry(){
         return  opportunityRepository.countOpportunitiesByCountryOpen();
     }
+
+//    ----------------------------------------------------------------------------
+//    ---------------------------------By City -----------------------------------
+//    ----------------------------------------------------------------------------
+
+    public List<Object[]> getOppByCity(){
+        return opportunityRepository.countOpportunitiesByCity();
+    }
+    public List<Object[]> getClosedWonByCity(){
+        return  opportunityRepository.countOpportunitiesByCityClosedWon();
+    }
+    public List<Object[]> getClosedLostByCity(){
+        return  opportunityRepository.countOpportunitiesByCityClosedLost();
+    }
+    public List<Object[]> getOpenByCity(){
+        return  opportunityRepository.countOpportunitiesByCityOpen();
+    }
+
+//    ----------------------------------------------------------------------------
+//    ---------------------------------By Industry--------------------------------
+//    ----------------------------------------------------------------------------
+
+    public List<Object[]> getOppByIndustry(){
+        return opportunityRepository.countOpportunitiesByIndustry();
+    }
+    public List<Object[]> getClosedWonByIndustry(){
+        return opportunityRepository.countOpportunitiesByIndustryClosedWon();
+    }
+    public List<Object[]> getClosedLostByIndustry(){
+        return  opportunityRepository.countOpportunitiesByIndustryClosedLost();
+
+    }
+    public List<Object[]> getOpenByIndustry(){
+        return opportunityRepository.countOpportunitiesByIndustryOpen();
+
+    }
+
+
+//    ----------------------------------------------------------------------------
+//    -----------------------------------------------------
+//    ----------------------------------------------------------------------------
+
+    public List<Object[]> getMeanQuantityOfOrders(){
+        return opportunityRepository.meanQuantityOfOrders();
+    }
+    public List<Object[]> getMedianQuantityOfOrders(){
+        return opportunityRepository.medianQuantityOfOrders();
+    }
+    public List<Object[]> getMaxQuantityOfOrders(){
+        return opportunityRepository.maxQuantityOfOrders();
+    }
+    public List<Object[]> getMinQuantityOfOrders(){
+        return opportunityRepository.minQuantityOfOrders();
+    }
+
+//    ----------------------------------------------------------------------------
+//    -----------------------------------------------------
+//    ----------------------------------------------------------------------------
+
+    public List<Object[]> getAverageOpportunitiesInAccount(){
+        return opportunityRepository.averageOpportunitiesInAccount();
+    }
+    public List<Object[]> getMaxOpportunitiesInAccount(){
+        return opportunityRepository.maxOpportunitiesInAccount();
+    }
+    public List<Object[]> getMinOpportunitiesInAccount(){
+        return opportunityRepository.minOpportunitiesInAccount();
+    }
+
 }
