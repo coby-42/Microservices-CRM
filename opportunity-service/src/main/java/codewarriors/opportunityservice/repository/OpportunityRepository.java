@@ -19,15 +19,15 @@ public interface OpportunityRepository extends JpaRepository<Opportunity, Long> 
     List<Object[]> countOpportunitiesBySalesRep();
 
 //    A count of all CLOSED_WON Opportunities by SalesRep
-    @Query(value = "SELECT s.name , count(*) FROM opportunity o INNER JOIN sales_rep s ON o.salesrep_id = s.id where status = 'CLOSED_WON' GROUP BY o.salesrep_id", nativeQuery = true)
+    @Query(value = "SELECT sales_rep_id ,count(*) as opportunity_count FROM opportunity where status= 'CLOSED_WON' GROUP BY sales_rep_id", nativeQuery = true)
     List<Object[]> countOpportunitiesBySalesRepClosedWon();
 
 //    A count of all CLOSED_LOST Opportunities by SalesRep
-    @Query(value = "SELECT s.name , count(*) FROM opportunity o INNER JOIN sales_rep s ON o.salesrep_id = s.id where status = 'CLOSED_LOST' GROUP BY o.salesrep_id", nativeQuery = true)
+    @Query(value = "SELECT sales_rep_id ,count(*) as opportunity_count FROM opportunity where status= 'CLOSED_LOST' GROUP BY sales_rep_id", nativeQuery = true)
     List<Object[]> countOpportunitiesBySalesRepClosedLost();
 
 //    A count of all OPEN Opportunities by SalesRep
-    @Query(value = "SELECT s.name , count(*) FROM opportunity o INNER JOIN sales_rep s ON o.salesrep_id = s.id where status = 'OPEN' GROUP BY o.salesrep_id", nativeQuery = true)
+    @Query(value = "SELECT sales_rep_id ,count(*) as opportunity_count FROM opportunity where status= 'OPEN' GROUP BY sales_rep_id", nativeQuery = true)
     List<Object[]> countOpportunitiesBySalesRepOpen();
 
 //    ----------------------------------------------------------------------------
