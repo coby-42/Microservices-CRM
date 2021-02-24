@@ -55,19 +55,19 @@ public interface OpportunityRepository extends JpaRepository<Opportunity, Long> 
 //    ----------------------------------------------------------------------------
 
 //    A count of all Opportunities by country
-    @Query(value = "SELECT a.country, count(*) FROM opportunity o JOIN account a ON o.account_id= a.id GROUP BY a.country", nativeQuery = true)
+    @Query(value = "SELECT a.country, count(*) FROM opportunity o JOIN account a ON o.account_id= a.account_id GROUP BY a.country", nativeQuery = true)
     List<Object[]> countOpportunitiesByCountry();
 
 //    A count of all CLOSED_WON Opportunities by country
-    @Query(value = "SELECT a.country, count(*) FROM opportunity o JOIN account a ON o.account_id= a.id  WHERE o.status = 'CLOSED_WON' GROUP BY a.country", nativeQuery = true)
+    @Query(value = "SELECT a.country, count(*) FROM opportunity o JOIN account a ON o.account_id= a.account_id  WHERE o.status = 'CLOSED_WON' GROUP BY a.country", nativeQuery = true)
     List<Object[]> countOpportunitiesByCountryClosedWon();
 
 //    A count of all CLOSED_LOST Opportunities by country
-    @Query(value = "SELECT a.country, count(*) FROM opportunity o JOIN account a ON o.account_id= a.id  WHERE o.status = 'CLOSED_LOST' GROUP BY a.country", nativeQuery = true)
+    @Query(value = "SELECT a.country, count(*) FROM opportunity o JOIN account a ON o.account_id= a.account_id  WHERE o.status = 'CLOSED_LOST' GROUP BY a.country", nativeQuery = true)
     List<Object[]> countOpportunitiesByCountryClosedLost();
 
 //    A count of all OPEN Opportunities by country
-    @Query(value = "SELECT a.country, count(*) FROM opportunity o JOIN account a ON o.account_id= a.id  WHERE o.status = 'OPEN' GROUP BY a.country", nativeQuery = true)
+    @Query(value = "SELECT a.country, count(*) FROM opportunity o JOIN account a ON o.account_id= a.account_id WHERE o.status = 'OPEN' GROUP BY a.country", nativeQuery = true)
     List<Object[]> countOpportunitiesByCountryOpen();
 
 //    ----------------------------------------------------------------------------

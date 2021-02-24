@@ -26,4 +26,12 @@ public interface IOpportunityController {
     public List<Object[]> getClosedLostByProduct();
     public List<Object[]> getOpenByProduct();
 
+//    ----------------------------------------------------------------------------
+//    ---------------------------------By Country --------------------------------
+//    ----------------------------------------------------------------------------
+
+    public List<Object[]> getOppByCountry();
+    public List<Object[]> getClosedWonByCountry();
+    public List<Object[]> getClosedLostByCountry();
+    public List<Object[]> getOpenByCountry();
 }

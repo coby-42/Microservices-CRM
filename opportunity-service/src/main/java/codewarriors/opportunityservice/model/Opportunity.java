@@ -8,6 +8,7 @@ import codewarriors.opportunityservice.enums.Status;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Optional;
 
 @Entity
 public class Opportunity {
@@ -24,18 +25,20 @@ public class Opportunity {
     @Enumerated(EnumType.STRING)
     Status status;
     private Long salesRepId;
-    private Long accountId;
+    @ManyToOne
+    @JoinColumn(name = "account_id")
+    private Account account;
 
-    public Opportunity() {
+    public Opportunity(Product product, int quantity, Contact contact, Status status, Long salesRepId, Optional<Account> account) {
     }
 
-    public Opportunity(Product product, int quantity, Contact decisionMaker, Status status, Long salesRepId, Long accountId) {
+    public Opportunity(Product product, int quantity, Contact decisionMaker, Status status, Long salesRepId, Account account) {
         this.product = product;
         this.quantity = quantity;
         this.decisionMaker = decisionMaker;
         this.status = status;
         this.salesRepId = salesRepId;
-        this.accountId = accountId;
+        this.account = account;
     }
 
     public Product getProduct() {
@@ -78,12 +81,12 @@ public class Opportunity {
         this.salesRepId = salesRepId;
     }
 
-    public Long getAccountId() {
-        return accountId;
+    public Account getAccount() {
+        return account;
     }
 
-    public void setAccountId(Long accountId) {
-        this.accountId = accountId;
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
     public Long getId() {

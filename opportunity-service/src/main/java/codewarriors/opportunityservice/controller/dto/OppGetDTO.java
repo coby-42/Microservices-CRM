@@ -2,6 +2,7 @@ package codewarriors.opportunityservice.controller.dto;
 
 import codewarriors.opportunityservice.enums.Product;
 import codewarriors.opportunityservice.enums.Status;
+import codewarriors.opportunityservice.model.Account;
 
 public class OppGetDTO {
 

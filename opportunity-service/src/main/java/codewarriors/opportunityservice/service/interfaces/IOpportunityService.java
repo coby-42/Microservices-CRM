@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface IOpportunityService {
 
-    OppGetDTO createOpp (OppPostDTO oppPostDTO);
+    void createOpp (OppPostDTO oppPostDTO);
 
-    OppGetDTO updateOppCloseLost(Long id);
+    void updateOppCloseLost(Long id);
 
-    OppGetDTO updateOppCloseWon(Long id);
+    void updateOppCloseWon(Long id);
 
 //    ----------------------------------------------------------------------------
 //    ---------------------------------By SalesRep--------------------------------

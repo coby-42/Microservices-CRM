@@ -16,7 +16,7 @@ public class OppPostDTO {
     private ContactGetDTO decisionMaker;
     @NotNull(message = "A status is required")
     private Status status;
-    @NotNull(message = "A salesrep is required")
+    @NotNull(message = "A sales_rep is required")
     private Long salesRepId;
     @NotNull(message = "An account is required")
     private Long accountId;

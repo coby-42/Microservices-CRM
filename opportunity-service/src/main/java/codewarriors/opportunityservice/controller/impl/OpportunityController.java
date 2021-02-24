@@ -1,12 +1,9 @@
 package codewarriors.opportunityservice.controller.impl;
 
-import codewarriors.opportunityservice.client.AccountClient;
 import codewarriors.opportunityservice.client.LeadClient;
 import codewarriors.opportunityservice.client.SalesRepClient;
 import codewarriors.opportunityservice.controller.dto.*;
 import codewarriors.opportunityservice.controller.interfaces.IOpportunityController;
-import codewarriors.opportunityservice.enums.Status;
-import codewarriors.opportunityservice.model.Contact;
 import codewarriors.opportunityservice.model.Opportunity;
 import codewarriors.opportunityservice.repository.ContactRepository;
 import codewarriors.opportunityservice.repository.OpportunityRepository;
@@ -31,8 +28,6 @@ public class OpportunityController implements IOpportunityController {
     @Autowired
     private LeadClient leadClient;
     @Autowired
-    private AccountClient accountClient;
-    @Autowired
     private SalesRepClient salesRepClient;
 
     @Override
@@ -53,6 +48,12 @@ public class OpportunityController implements IOpportunityController {
                 opportunity.getDecisionMaker().getCompanyName(),
                 opportunity.getDecisionMaker().getAccountId());
 
+        AccountGetDTO accountGetDTO = new AccountGetDTO(opportunity.getAccount().getId(),
+                opportunity.getAccount().getCity(),
+                opportunity.getAccount().getEmployeeCount(),
+                opportunity.getAccount().getCountry(),
+                opportunity.getAccount().getIndustry().toString());
+
 
         OppGetDTO oppGetDTO = new OppGetDTO(opportunity.getId(),
                 opportunity.getProduct(),
@@ -60,27 +61,28 @@ public class OpportunityController implements IOpportunityController {
                 contactGetDTO,
                 opportunity.getStatus(),
                 opportunity.getSalesRepId(),
-                opportunity.getAccountId());
+                opportunity.getAccount().getId());
+
         return oppGetDTO;
     }
 
 
     @PostMapping("/opportunity")
     @ResponseStatus(HttpStatus.CREATED)
-    public OppGetDTO createOpp(@RequestBody @Valid OppPostDTO oppPostDTO) {
-        return opportunityService.createOpp(oppPostDTO);
+    public void createOpp(@RequestBody @Valid OppPostDTO oppPostDTO) {
+        opportunityService.createOpp(oppPostDTO);
     }
 
     @PutMapping("/opportunity/close-lost/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public OppGetDTO updateOppCloseLost(@PathVariable Long id) {
-        return opportunityService.updateOppCloseLost(id);
+    public void updateOppCloseLost(@PathVariable Long id) {
+        opportunityService.updateOppCloseLost(id);
     }
 
     @PutMapping("/opportunity/close-won/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public OppGetDTO updateOppCloseWon(@PathVariable Long id) {
-        return opportunityService.updateOppCloseWon(id);
+    public void updateOppCloseWon(@PathVariable Long id) {
+        opportunityService.updateOppCloseWon(id);
     }
 
 //    ----------------------------------------------------------------------------
@@ -147,6 +149,38 @@ public class OpportunityController implements IOpportunityController {
         return opportunityService.getOpenByProduct();
     }
 
+
+//    ----------------------------------------------------------------------------
+//    ---------------------------------By Country --------------------------------
+//    ----------------------------------------------------------------------------
+
+    @Override
+    @GetMapping("/report/opportunity/by-Country")
+    @ResponseStatus(HttpStatus.OK)
+    public List <Object[]> getOppByCountry() {
+        return opportunityService.getOppByCountry();
+    }
+
+    @Override
+    @GetMapping("/report/closedWon/by-Country")
+    @ResponseStatus(HttpStatus.OK)
+    public List <Object[]> getClosedWonByCountry() {
+        return opportunityService.getClosedWonByCountry();
+    }
+
+    @Override
+    @GetMapping("/report/closedLost/by-Country")
+    @ResponseStatus(HttpStatus.OK)
+    public List <Object[]> getClosedLostByCountry() {
+        return opportunityService.getClosedLostByCountry();
+    }
+
+    @Override
+    @GetMapping("/report/open/by-Country")
+    @ResponseStatus(HttpStatus.OK)
+    public List <Object[]> getOpenByCountry() {
+        return opportunityService.getOpenByCountry();
+    }
 
 
 }
