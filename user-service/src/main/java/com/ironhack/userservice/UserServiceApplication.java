@@ -10,20 +10,20 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
 @EnableEurekaClient
-public class UserServiceApplication implements CommandLineRunner {
+public class UserServiceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(UserServiceApplication.class, args);
 	}
 
-	@Autowired
-    private IUserService userService;
-
-    @Override
-    public void run(String... args) throws Exception {
-        System.out.println(ConsoleColors.PURPLE_BOLD_BRIGHT + "\n\tUp and Running!!!");
-        System.out.println(ConsoleColors.WHITE_BRIGHT);
-
-		userService.createAdminIfNecessary();
-    }
+//	@Autowired
+//    private IUserService userService;
+//
+//    @Override
+//    public void run(String... args) throws Exception {
+//        System.out.println(ConsoleColors.PURPLE_BOLD_BRIGHT + "\n\tUp and Running!!!");
+//        System.out.println(ConsoleColors.WHITE_BRIGHT);
+//
+//		userService.createAdminIfNecessary();
+//    }
 }
