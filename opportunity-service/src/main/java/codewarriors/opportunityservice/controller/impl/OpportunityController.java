@@ -1,7 +1,6 @@
 package codewarriors.opportunityservice.controller.impl;
 
 import codewarriors.opportunityservice.client.LeadClient;
-import codewarriors.opportunityservice.client.SalesRepClient;
 import codewarriors.opportunityservice.controller.dto.*;
 import codewarriors.opportunityservice.controller.interfaces.IOpportunityController;
 import codewarriors.opportunityservice.model.Opportunity;
@@ -27,14 +26,11 @@ public class OpportunityController implements IOpportunityController {
     private IOpportunityService opportunityService;
     @Autowired
     private LeadClient leadClient;
-    @Autowired
-    private SalesRepClient salesRepClient;
+
 
     @Override
     @GetMapping("/opportunity/{id}")
-    @ResponseStatus(HttpStatus.OK)
     public OppGetDTO getOppById(@PathVariable Long id) {
-
         if (!opportunityRepository.existsById(id)) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Opportunity not found");
         }
@@ -55,15 +51,13 @@ public class OpportunityController implements IOpportunityController {
                 opportunity.getAccount().getCity());
 
 
-        OppGetDTO oppGetDTO = new OppGetDTO(opportunity.getId(),
+        return new OppGetDTO(opportunity.getId(),
                 opportunity.getProduct(),
                 opportunity.getQuantity(),
                 contactGetDTO,
                 opportunity.getStatus(),
                 opportunity.getSalesRepId(),
                 opportunity.getAccount().getId());
-
-        return oppGetDTO;
     }
 
 

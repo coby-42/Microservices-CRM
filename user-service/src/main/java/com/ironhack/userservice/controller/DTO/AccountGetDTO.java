@@ -14,7 +14,7 @@ public class AccountGetDTO {
     public AccountGetDTO(Long id, Industry industry, int employeeCount, String city, String country) {
         this.id = id;
         this.industry = industry;
-        setEmployeeCount(employeeCount);
+        this.employeeCount = employeeCount;
         this.city = city;
         this.country = country;
     }
@@ -55,12 +55,7 @@ public class AccountGetDTO {
     }
 
     public void setEmployeeCount(int employeeCount) {
-        if (employeeCount > 0) {
-            this.employeeCount = employeeCount;
-
-        } else {
-            throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "Number of employees must be higher than zero");
-        }
+        this.employeeCount = employeeCount;
     }
 
     public String getCity() {

@@ -1,7 +1,6 @@
 package codewarriors.opportunityservice.service.impl;
 
 import codewarriors.opportunityservice.client.LeadClient;
-import codewarriors.opportunityservice.client.SalesRepClient;
 import codewarriors.opportunityservice.controller.dto.*;
 import codewarriors.opportunityservice.enums.Status;
 import codewarriors.opportunityservice.model.Account;
@@ -30,8 +29,6 @@ public class OpportunityService implements IOpportunityService {
     private LeadClient leadClient;
     @Autowired
     private ContactRepository contactRepository;
-    @Autowired
-    private SalesRepClient salesRepClient;
     @Autowired
     private AccountService accountService;
     @Autowired

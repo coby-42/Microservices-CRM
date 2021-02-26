@@ -23,19 +23,19 @@ public class EdgeService implements IEdgeService {
     @Autowired
     private LeadClient leadClient;
 
-    private CircuitBreakerFactory circuitBreakerFactory = new Resilience4JCircuitBreakerFactory();
+    private final CircuitBreakerFactory circuitBreakerFactory = new Resilience4JCircuitBreakerFactory();
 
 /**   -------------------------------- Account ----------------------------------- **/
 
     @Override
     public List<AccountGetDTO> getAllAccounts() {
-        CircuitBreaker circuitBreaker = circuitBreakerFactory.create("lead-service");
+        CircuitBreaker circuitBreaker = circuitBreakerFactory.create("account-service");
         return circuitBreaker.run(()->opportunityClient.getAllAccounts(), throwable -> getAllAccountsFallback());
     }
 
     @Override
     public AccountGetDTO getAccountById(Long id) {
-        CircuitBreaker circuitBreaker = circuitBreakerFactory.create("lead-service");
+        CircuitBreaker circuitBreaker = circuitBreakerFactory.create("account-service");
         return circuitBreaker.run(()->opportunityClient.getAccountById(id),throwable->getAccountByIdFallback());
     }
 

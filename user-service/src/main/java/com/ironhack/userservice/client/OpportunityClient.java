@@ -17,15 +17,15 @@ public interface OpportunityClient {
 
     @GetMapping("/accounts")
     @ResponseStatus(HttpStatus.OK)
-    public List<AccountGetDTO> getAllAccounts();
+    List<AccountGetDTO> getAllAccounts();
 
     @GetMapping("/account/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public AccountGetDTO getAccountById(@PathVariable("id") Long id);
+    AccountGetDTO getAccountById(@PathVariable Long id);
 
     @PostMapping("/account")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createAccount(@RequestBody AccountGetDTO accountGetDTO) ;
+    void createAccount(@RequestBody AccountGetDTO accountGetDTO) ;
 
 
 /**   ---------------------------------Opportunity-------------------------------- **/
@@ -33,19 +33,19 @@ public interface OpportunityClient {
 
     @GetMapping("/opportunity/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public OppGetDTO getOppById(@PathVariable Long id) ;
+    OppGetDTO getOppById(@PathVariable Long id) ;
 
     @PostMapping("/opportunity")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createOpp(@RequestBody @Valid OppPostDTO oppPostDTO);
+    void createOpp(@RequestBody @Valid OppPostDTO oppPostDTO);
 
     @PutMapping("/opportunity/close-lost/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateOppCloseLost(@PathVariable Long id);
+    void updateOppCloseLost(@PathVariable Long id);
 
     @PutMapping("/opportunity/close-won/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateOppCloseWon(@PathVariable Long id);
+    void updateOppCloseWon(@PathVariable Long id);
 
 
 /**   ---------------------------------By SalesRep-------------------------------- **/
@@ -53,19 +53,19 @@ public interface OpportunityClient {
 
     @GetMapping("/report/opportunity/by-salesRep")
     @ResponseStatus(HttpStatus.OK)
-    public List<Object[]> getOppBySalesRep();
+    List<Object[]> getOppBySalesRep();
 
     @GetMapping("/report/closedWon/by-salesRep")
     @ResponseStatus(HttpStatus.OK)
-    public List <Object[]> getClosedWonBySalesRep();
+    List <Object[]> getClosedWonBySalesRep();
 
     @GetMapping("/report/closedLost/by-salesRep")
     @ResponseStatus(HttpStatus.OK)
-    public List <Object[]> getClosedLostBySalesRep();
+    List <Object[]> getClosedLostBySalesRep();
 
     @GetMapping("/report/open/by-salesRep")
     @ResponseStatus(HttpStatus.OK)
-    public List <Object[]> getOpenBySalesRep();
+    List <Object[]> getOpenBySalesRep();
 
 
 /**   ---------------------------------By Product -------------------------------- **/
@@ -73,57 +73,57 @@ public interface OpportunityClient {
 
     @GetMapping("/report/opportunity/by-Product")
     @ResponseStatus(HttpStatus.OK)
-    public List <Object[]> getOppByProduct();
+    List <Object[]> getOppByProduct();
 
     @GetMapping("/report/closedWon/by-Product")
     @ResponseStatus(HttpStatus.OK)
-    public List <Object[]> getClosedWonByProduct();
+    List <Object[]> getClosedWonByProduct();
 
     @GetMapping("/report/closedLost/by-Product")
     @ResponseStatus(HttpStatus.OK)
-    public List <Object[]> getClosedLostByProduct();
+    List <Object[]> getClosedLostByProduct();
 
     @GetMapping("/report/open/by-Product")
     @ResponseStatus(HttpStatus.OK)
-    public List <Object[]> getOpenByProduct();
+    List <Object[]> getOpenByProduct();
 
 /**   ---------------------------------By Country -------------------------------- **/
 
     @GetMapping("/report/opportunity/by-Country")
     @ResponseStatus(HttpStatus.OK)
-    public List <Object[]> getOppByCountry();
+    List <Object[]> getOppByCountry();
 
     @GetMapping("/report/closedWon/by-Country")
     @ResponseStatus(HttpStatus.OK)
-    public List <Object[]> getClosedWonByCountry();
+    List <Object[]> getClosedWonByCountry();
 
     @GetMapping("/report/closedLost/by-Country")
     @ResponseStatus(HttpStatus.OK)
-    public List <Object[]> getClosedLostByCountry();
+    List <Object[]> getClosedLostByCountry();
 
     @GetMapping("/report/open/by-Country")
     @ResponseStatus(HttpStatus.OK)
-    public List <Object[]> getOpenByCountry();
+    List <Object[]> getOpenByCountry();
 
 /**   ---------------------------------By City ----------------------------------- **/
 
 
     @GetMapping("/report/opportunity/by-City")
     @ResponseStatus(HttpStatus.OK)
-    public List <Object[]> getOppByCity();
+    List <Object[]> getOppByCity();
 
 
     @GetMapping("/report/closedWon/by-City")
     @ResponseStatus(HttpStatus.OK)
-    public List <Object[]> getClosedWonByCity();
+    List <Object[]> getClosedWonByCity();
 
     @GetMapping("/report/closedLost/by-City")
     @ResponseStatus(HttpStatus.OK)
-    public List <Object[]> getClosedLostByCity() ;
+    List <Object[]> getClosedLostByCity() ;
 
     @GetMapping("/report/open/by-City")
     @ResponseStatus(HttpStatus.OK)
-    public List <Object[]> getOpenByCity();
+    List <Object[]> getOpenByCity();
 
 
 /**   -------------------------Reports By Industry-------------------------------- **/
@@ -131,50 +131,48 @@ public interface OpportunityClient {
 
     @GetMapping("/report/opportunity/by-Industry")
     @ResponseStatus(HttpStatus.OK)
-    public List <Object[]> getOppByIndustry();
+    List <Object[]> getOppByIndustry();
 
     @GetMapping("/report/closedWon/by-Industry")
     @ResponseStatus(HttpStatus.OK)
-    public List <Object[]> getClosedWonByIndustry();
+    List <Object[]> getClosedWonByIndustry();
 
     @GetMapping("/report/closedLost/by-Industry")
     @ResponseStatus(HttpStatus.OK)
-    public List <Object[]> getClosedLostByIndustry();
+    List <Object[]> getClosedLostByIndustry();
 
     @GetMapping("/report/open/by-Industry")
     @ResponseStatus(HttpStatus.OK)
-    public List <Object[]> getOpenByIndustry();
+    List <Object[]> getOpenByIndustry();
 
 
 /**   ------------------------------------Stats----------------------------------- **/
 
     @GetMapping("/report/meanQuantityOfOrders")
     @ResponseStatus(HttpStatus.OK)
-    public List<Object[]> getMeanQuantityOfOrders();
+    List<Object[]> getMeanQuantityOfOrders();
 
     @GetMapping("/report/medianQuantityOfOrders")
     @ResponseStatus(HttpStatus.OK)
-    public List<Object[]> getMedianQuantityOfOrders();
+    List<Object[]> getMedianQuantityOfOrders();
 
     @GetMapping("/report/maxQuantityOfOrders")
     @ResponseStatus(HttpStatus.OK)
-    public List<Object[]> getMaxQuantityOfOrders();
+    List<Object[]> getMaxQuantityOfOrders();
 
     @GetMapping("/report/minQuantityOfOrders")
     @ResponseStatus(HttpStatus.OK)
-    public List<Object[]> getMinQuantityOfOrders();
+    List<Object[]> getMinQuantityOfOrders();
 
     @GetMapping("/report/averageOpportunitiesInAccount")
     @ResponseStatus(HttpStatus.OK)
-    public List<Object[]> getAverageOpportunitiesInAccount();
+    List<Object[]> getAverageOpportunitiesInAccount();
 
     @GetMapping("/report/maxOpportunitiesInAccount")
     @ResponseStatus(HttpStatus.OK)
-    public List<Object[]> getMaxOpportunitiesInAccount();
+    List<Object[]> getMaxOpportunitiesInAccount();
 
     @GetMapping("/report/minOpportunitiesInAccount")
     @ResponseStatus(HttpStatus.OK)
-    public List<Object[]> getMinOpportunitiesInAccount();
-
-
+    List<Object[]> getMinOpportunitiesInAccount();
 }

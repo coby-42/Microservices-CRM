@@ -16,23 +16,24 @@ public class AccountService {
     AccountRepository accountRepository;
 
     public List<AccountGetDTO> getAllAccounts() {
-        List<AccountGetDTO> accounts = new ArrayList<>();
-        for(Account account : accountRepository.findAll()) {
-            accounts.add(new AccountGetDTO(
+        List<AccountGetDTO> accountsDTO = new ArrayList<>();
+        List<Account> accounts = accountRepository.findAll();
+        for(Account account : accounts) {
+            accountsDTO.add(new AccountGetDTO(
                     account.getId(),
                     account.getIndustry(),
                     account.getEmployeeCount(),
                     account.getCity(),
                     account.getCountry()
             ));
-
         }
-        return accounts;
+        return accountsDTO;
     }
 
     public AccountGetDTO getAccountById(Long id) {
-        if (accountRepository.findById(id).isPresent()) {
-          Account account = accountRepository.findById(id).get();
+        Optional<Account> accountOptional = accountRepository.findById(id);
+        if (accountOptional.isPresent()) {
+          Account account =accountOptional.get();
                 return new AccountGetDTO(
                         account.getId(),
                         account.getIndustry(),
@@ -40,20 +41,17 @@ public class AccountService {
                         account.getCity(),
                         account.getCountry()
                 );
-
             } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "The account with id " + id + "doesn't exist in the database");
         }
     }
 
     public void createAccount(AccountGetDTO accountGetDTO) {
-
         accountRepository.save(new Account(
                 accountGetDTO.getIndustry(),
                 accountGetDTO.getEmployeeCount(),
                 accountGetDTO.getCity(),
                 accountGetDTO.getCountry()
         ));
-
     }
 }
